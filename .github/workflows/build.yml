@@ -8,12 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Force Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
       - uses: actions/checkout@v4
+
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: Adodo17SOSSOU
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - run: |
           docker build -t ghcr.io/Adodo17SOSSOU/pytorch-jz:latest .
           docker push ghcr.io/Adodo17SOSSOU/pytorch-jz:latest
