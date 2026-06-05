@@ -1,1 +1,19 @@
+name: Build and Push to GHCR
 
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: TON_NOM_GITHUB
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          docker build -t ghcr.io/TON_NOM_GITHUB/pytorch-jz:latest .
+          docker push ghcr.io/TON_NOM_GITHUB/pytorch-jz:latest
