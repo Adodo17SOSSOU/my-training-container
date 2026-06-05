@@ -15,5 +15,5 @@ jobs:
           username: TON_NOM_GITHUB
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          docker build -t ghcr.io/TON_NOM_GITHUB/pytorch-jz:latest .
-          docker push ghcr.io/TON_NOM_GITHUB/pytorch-jz:latest
+          docker build -t ghcr.io/Adodo17SOSSOU/pytorch-jz:latest .
+          docker push ghcr.io/Adodo17SOSSOU/pytorch-jz:latest
